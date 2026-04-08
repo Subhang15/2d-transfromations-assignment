@@ -267,7 +267,7 @@
                 p.strokeWeight(2);
                 p.beginShape();
                 baseShape.forEach(pt => {
-                    p.vertex(pt.x, pt.y);
+                    p.vertex(pt.x + tx, pt.y + ty);
                 });
                 p.endShape(p.CLOSE);
             };
@@ -303,7 +303,9 @@
                 p.strokeWeight(2);
                 p.beginShape();
                 baseShape.forEach(pt => {
-                    p.vertex(pt.x, pt.y);
+                    let newX = pt.x * cosT - pt.y * sinT;
+                    let newY = pt.x * sinT + pt.y * cosT;
+                    p.vertex(newX, newY);
                 });
                 p.endShape(p.CLOSE);
             };
@@ -340,7 +342,7 @@
                 p.strokeWeight(2);
                 p.beginShape();
                 baseShape.forEach(pt => {
-                    p.vertex(pt.x, pt.y);
+                    p.vertex(pt.x * sx, pt.y * sy);
                 });
                 p.endShape(p.CLOSE);
             };
@@ -378,7 +380,9 @@
                 p.beginShape();
                 baseShape.forEach(pt => {
                     // Math: x' = x + y*shx, y' = y + x*shy
-                    p.vertex(pt.x, pt.y);
+                    let newX = pt.x + pt.y * shx;
+                    let newY = pt.y + pt.x * shy;
+                    p.vertex(newX, newY);
                 });
                 p.endShape(p.CLOSE);
             };
@@ -411,7 +415,9 @@
                 p.strokeWeight(2);
                 p.beginShape();
                 baseShape.forEach(pt => {
-                    p.vertex(pt.x, pt.y);
+                    let newX = refX ? -pt.x : pt.x;
+                    let newY = refY ? -pt.y : pt.y;
+                    p.vertex(newX, newY);
                 });
                 p.endShape(p.CLOSE);
             };
