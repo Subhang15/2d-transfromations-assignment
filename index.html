@@ -303,9 +303,9 @@
                 p.strokeWeight(2);
                 p.beginShape();
                 baseShape.forEach(pt => {
-                    let newX = pt.x * cosT - pt.y * sinT;
-                    let newY = pt.x * sinT + pt.y * cosT;
-                    p.vertex(newX, newY);
+                    let x2 = pt.x * cosT - pt.y * sinT;
+                    let y2 = pt.x * sinT + pt.y * cosT;
+                    p.vertex(x2, y2);
                 });
                 p.endShape(p.CLOSE);
             };
@@ -380,9 +380,9 @@
                 p.beginShape();
                 baseShape.forEach(pt => {
                     // Math: x' = x + y*shx, y' = y + x*shy
-                    let newX = pt.x + pt.y * shx;
-                    let newY = pt.y + pt.x * shy;
-                    p.vertex(newX, newY);
+                    let x2 = pt.x + pt.y * shx;
+                    let y2 = pt.y + pt.x * shy;
+                    p.vertex(x2, y2);
                 });
                 p.endShape(p.CLOSE);
             };
@@ -415,9 +415,9 @@
                 p.strokeWeight(2);
                 p.beginShape();
                 baseShape.forEach(pt => {
-                    let newX = refX ? -pt.x : pt.x;
-                    let newY = refY ? -pt.y : pt.y;
-                    p.vertex(newX, newY);
+                    let x2 = refX ? -pt.x : pt.x;
+                    let y2 = refY ? -pt.y : pt.y;
+                    p.vertex(x2, y2);
                 });
                 p.endShape(p.CLOSE);
             };
